@@ -1,0 +1,16 @@
+{
+  "name": "awtad-al-khaleej",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A high-performance, responsive industrial web application for Awtad Al Khaleej, specialized in heavy-tonnage structural steel fabrication.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.3.0"
+  }
+}
+

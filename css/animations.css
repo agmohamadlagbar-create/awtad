@@ -1,0 +1,454 @@
+/* ==========================================================================
+   Awtad Al Khaleej — Industrial Steel Animation System
+   Style: Smooth + Industrial + Minimal + Premium
+   Main Easing: cubic-bezier(0.16, 1, 0.3, 1)
+   ========================================================================== */
+
+:root {
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-industrial-snap: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-btn-hover: 200ms;
+  --duration-btn-press: 100ms;
+  --duration-navbar: 300ms;
+  --duration-card-hover: 400ms;
+  --duration-img-zoom: 800ms;
+  --duration-section-reveal: 700ms;
+  --duration-hero-heading: 800ms;
+  --duration-hero-image: 1000ms;
+  --duration-page-transition: 350ms;
+  --duration-form-field: 450ms;
+  --stagger-delay: 100ms;
+}
+
+/* --------------------------------------------------------------------------
+   17. Scroll Progress Bar
+   -------------------------------------------------------------------------- */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--color-forge-orange);
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 80ms linear;
+  box-shadow: 0 0 8px rgba(232, 117, 36, 0.6);
+}
+
+[dir="rtl"] .scroll-progress-bar {
+  left: auto;
+  right: 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. Navbar Scroll Transform & 12. Navbar Link Underline
+   -------------------------------------------------------------------------- */
+.header-glass {
+  transition: background-color var(--duration-navbar) var(--ease-premium),
+              backdrop-filter var(--duration-navbar) var(--ease-premium),
+              border-color var(--duration-navbar) var(--ease-premium),
+              box-shadow var(--duration-navbar) var(--ease-premium);
+}
+
+.header-scrolled {
+  background-color: rgba(11, 13, 14, 0.94) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-bottom-color: rgba(68, 71, 73, 0.7) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-forge-orange);
+  transition: width var(--duration-btn-hover) var(--ease-premium);
+}
+
+[dir="rtl"] .nav-link::after {
+  left: auto;
+  right: 0;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   1. Cinematic Hero Load & 2. Hero Image Clip-Path Reveal
+   -------------------------------------------------------------------------- */
+.hero-load-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-hero-heading) var(--ease-premium),
+              transform var(--duration-hero-heading) var(--ease-premium);
+  will-change: transform, opacity;
+}
+
+.hero-loaded .hero-load-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for Hero elements */
+.hero-delay-1 { transition-delay: 50ms; }
+.hero-delay-2 { transition-delay: 150ms; }
+.hero-delay-3 { transition-delay: 300ms; }
+.hero-delay-4 { transition-delay: 450ms; }
+.hero-delay-5 { transition-delay: 600ms; }
+.hero-delay-6 { transition-delay: 750ms; }
+
+.hero-image-clip {
+  clip-path: inset(0 0 100% 0);
+  transform: scale(1.08);
+  transition: clip-path var(--duration-hero-image) var(--ease-premium),
+              transform var(--duration-hero-image) var(--ease-premium);
+  will-change: clip-path, transform;
+}
+
+.hero-loaded .hero-image-clip {
+  clip-path: inset(0 0 0% 0);
+  transform: scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   3. Scroll Section Reveal & 4. Staggered Card Entrance
+   -------------------------------------------------------------------------- */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--duration-section-reveal) var(--ease-premium),
+              transform var(--duration-section-reveal) var(--ease-premium);
+  will-change: transform, opacity;
+}
+
+.reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity var(--duration-section-reveal) var(--ease-premium),
+              transform var(--duration-section-reveal) var(--ease-premium);
+}
+
+[dir="rtl"] .reveal-left {
+  transform: translateX(40px);
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity var(--duration-section-reveal) var(--ease-premium),
+              transform var(--duration-section-reveal) var(--ease-premium);
+}
+
+[dir="rtl"] .reveal-right {
+  transform: translateX(-40px);
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Card Stagger via CSS variable --stagger-index */
+.stagger-item {
+  transition-delay: calc(var(--stagger-index, 0) * var(--stagger-delay));
+}
+
+/* --------------------------------------------------------------------------
+   5. Button Hover & 6. Button Click (Micro-press)
+   -------------------------------------------------------------------------- */
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-cta,
+button[type="submit"],
+.btn-pressable {
+  transition: transform var(--duration-btn-hover) var(--ease-premium),
+              background-color var(--duration-btn-hover) var(--ease-premium),
+              border-color var(--duration-btn-hover) var(--ease-premium),
+              box-shadow var(--duration-btn-hover) var(--ease-premium),
+              color var(--duration-btn-hover) var(--ease-premium);
+  will-change: transform;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-outline:hover,
+.btn-cta:hover,
+button[type="submit"]:hover,
+.btn-pressable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 117, 36, 0.25);
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-outline:active,
+.btn-cta:active,
+button[type="submit"]:active,
+.btn-pressable:active {
+  transform: scale(0.97) translateY(0);
+  transition-duration: var(--duration-btn-press);
+}
+
+/* Arrow inside buttons */
+.btn-arrow-icon {
+  display: inline-block;
+  transition: transform var(--duration-btn-hover) var(--ease-premium);
+}
+
+.btn-primary:hover .btn-arrow-icon,
+.btn-secondary:hover .btn-arrow-icon,
+.btn-pressable:hover .btn-arrow-icon {
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .btn-primary:hover .btn-arrow-icon,
+[dir="rtl"] .btn-secondary:hover .btn-arrow-icon,
+[dir="rtl"] .btn-pressable:hover .btn-arrow-icon {
+  transform: translateX(-4px);
+}
+
+/* --------------------------------------------------------------------------
+   7. Product Card Hover & 8. Industrial Image Hover
+   -------------------------------------------------------------------------- */
+.card-interactive {
+  transition: transform var(--duration-card-hover) var(--ease-premium),
+              border-color var(--duration-card-hover) var(--ease-premium),
+              box-shadow var(--duration-card-hover) var(--ease-premium),
+              background-color var(--duration-card-hover) var(--ease-premium);
+  will-change: transform;
+}
+
+.card-interactive:hover {
+  transform: translateY(-6px);
+  border-color: rgba(232, 117, 36, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(232, 117, 36, 0.1);
+}
+
+.card-image-wrap {
+  overflow: hidden;
+}
+
+.card-image-zoom {
+  transition: transform var(--duration-img-zoom) var(--ease-premium),
+              filter var(--duration-img-zoom) var(--ease-premium);
+  will-change: transform;
+}
+
+.card-interactive:hover .card-image-zoom,
+.card-image-wrap:hover .card-image-zoom {
+  transform: scale(1.04);
+}
+
+.industrial-img-zoom {
+  overflow: hidden;
+}
+
+.industrial-img-zoom img {
+  transition: transform 800ms var(--ease-premium);
+  will-change: transform;
+}
+
+.industrial-img-zoom:hover img {
+  transform: scale(1.03);
+}
+
+/* --------------------------------------------------------------------------
+   9. Section Heading Animation & 16. Steel-Line Sweep
+   -------------------------------------------------------------------------- */
+.steel-line-sweep {
+  display: inline-block;
+  height: 2px;
+  background-color: var(--color-forge-orange);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 600ms var(--ease-premium);
+  will-change: transform;
+}
+
+[dir="rtl"] .steel-line-sweep {
+  transform-origin: right center;
+}
+
+.revealed .steel-line-sweep,
+.steel-line-sweep.swept {
+  transform: scaleX(1);
+}
+
+.heading-fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms var(--ease-premium),
+              transform 600ms var(--ease-premium);
+}
+
+.revealed .heading-fade-slide,
+.heading-fade-slide.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   10. Numbers Counter
+   -------------------------------------------------------------------------- */
+.counter-value {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   13. Page Transition
+   -------------------------------------------------------------------------- */
+.page-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-page-transition) var(--ease-premium),
+              transform var(--duration-page-transition) var(--ease-premium);
+  will-change: opacity, transform;
+}
+
+.page-entering {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.page-leaving {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+/* --------------------------------------------------------------------------
+   14. Contact Form Field Reveal & 15. Form Focus
+   -------------------------------------------------------------------------- */
+.form-field-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-form-field) var(--ease-premium),
+              transform var(--duration-form-field) var(--ease-premium);
+}
+
+.form-revealed .form-field-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  transition: border-color var(--duration-btn-hover) var(--ease-premium),
+              box-shadow var(--duration-btn-hover) var(--ease-premium),
+              background-color var(--duration-btn-hover) var(--ease-premium);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: var(--color-forge-orange) !important;
+  box-shadow: 0 0 0 1px var(--color-forge-orange), 0 0 16px rgba(232, 117, 36, 0.15) !important;
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Viewfinder & Crosshair Details (from Stitch)
+   -------------------------------------------------------------------------- */
+.viewfinder-crosshair {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--color-forge-orange);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.viewfinder-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.viewfinder-tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+.viewfinder-bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+.viewfinder-br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+/* --------------------------------------------------------------------------
+   Accordion transitions
+   -------------------------------------------------------------------------- */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 350ms var(--ease-premium),
+              opacity 300ms var(--ease-premium);
+  opacity: 0;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.accordion-chevron {
+  transition: transform 250ms var(--ease-premium);
+}
+
+.accordion-item.active .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Accessibility
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-item,
+  .reveal-left,
+  .reveal-right,
+  .hero-load-item,
+  .form-field-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-image-clip {
+    clip-path: none !important;
+    transform: none !important;
+  }
+
+  .steel-line-sweep {
+    transform: none !important;
+  }
+
+  .card-interactive:hover,
+  .card-interactive:hover .card-image-zoom,
+  .industrial-img-zoom:hover img {
+    transform: none !important;
+  }
+}

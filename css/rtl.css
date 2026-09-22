@@ -90,3 +90,27 @@
   display: inline-block;
   transform: scaleX(-1);
 }
+
+/* RTL overrides for new pages */
+[dir="rtl"] .toc-card {
+  border-left: 1px solid var(--color-outline-variant-30);
+  border-right: 2px solid var(--color-forge-orange);
+}
+
+[dir="rtl"] .capability-card::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .editorial-spec-badge {
+  text-align: right;
+}
+
+[dir="rtl"] .policy-article {
+  text-align: right;
+}
+
+[dir="rtl"] .faq-question-btn {
+  text-align: right;
+}
+

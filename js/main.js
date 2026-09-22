@@ -1,28 +1,41 @@
 /**
- * Main Entry Point: Orchestrator for all Industrial Precision frontend modules
+ * Main Entry Point: Orchestrator for all Industrial Precision SPA frontend modules
  */
 
+import { initRouter, registerOnNavigate } from './router.js';
 import { initScroll } from './scroll.js';
-import { initAnimations } from './animations.js';
+import { initAnimations, reinitForPage } from './animations.js';
 import { initNavigation } from './navigation.js';
 import { initForm } from './form.js';
-import { initI18n } from './i18n.js';
+import { initI18n, applyLanguage, getCurrentLanguage } from './i18n.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize navigation & mobile drawer
+  // 1. Navigation & mobile drawer
   initNavigation();
 
-  // Initialize scroll dynamics (smooth scroll, sticky header, parallax)
+  // 2. Global Scroll dynamics
   initScroll();
 
-  // Initialize scroll reveals, animated number counters & category filter
-  initAnimations();
+  // 3. Register route change lifecycle hook BEFORE initializing router
+  registerOnNavigate((pathname) => {
+    // Re-apply active language translations to new elements in the DOM
+    applyLanguage(getCurrentLanguage());
 
-  // Initialize RFQ intake form validation & simulated submission
-  initForm();
+    // Re-trigger animations, observers, filters, FAQ, and TOC spies
+    reinitForPage(pathname);
 
-  // Initialize bilingual English / Arabic localization and RTL switching
+    // Re-bind forms if mounted on this page
+    initForm();
+  });
+
+  // 4. Initialize Bilingual i18n system
   initI18n();
 
-  console.log('[Awtad Al Khaleej] Industrial Steel Fabrication Catalog initialized.');
+  // 5. Initialize client-side SPA router (renders initial page)
+  initRouter();
+
+  // 6. Initialize global animations and scroll effects
+  initAnimations();
+
+  console.log('[Awtad Al Khaleej] Multi-Page SPA & Animation System initialized.');
 });

@@ -1,19 +1,18 @@
 /**
- * Navigation: Mobile Drawer, ScrollSpy Active Links & Keyboard Accessibility
+ * Navigation: Mobile Drawer, Active States, and Keyboard Accessibility
  */
 
 export function initNavigation() {
   const hamburger = document.querySelector('.hamburger-btn');
   const mobileNav = document.querySelector('.mobile-nav-overlay');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-  const desktopLinks = document.querySelectorAll('.desktop-nav .nav-link');
-  const sections = document.querySelectorAll('section[id]');
+  const mobileLinks = mobileNav ? mobileNav.querySelectorAll('a') : [];
 
   // 1. Mobile Menu Toggle
-  function toggleMobileNav() {
+  function toggleMobileNav(forceClose = false) {
     if (!mobileNav || !hamburger) return;
     const isOpen = mobileNav.classList.contains('is-open');
-    if (isOpen) {
+
+    if (isOpen || forceClose) {
       mobileNav.classList.remove('is-open');
       hamburger.classList.remove('is-active');
       hamburger.setAttribute('aria-expanded', 'false');
@@ -27,46 +26,56 @@ export function initNavigation() {
   }
 
   if (hamburger) {
-    hamburger.addEventListener('click', toggleMobileNav);
+    hamburger.addEventListener('click', () => toggleMobileNav());
   }
 
   // Close on Escape Key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('is-open')) {
-      toggleMobileNav();
+      toggleMobileNav(true);
     }
   });
 
-  // Close mobile nav on click of any mobile link
-  mobileLinks.forEach(link => {
+  // Close mobile nav when clicking any link inside
+  mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
-      if (mobileNav && mobileNav.classList.contains('is-open')) {
-        toggleMobileNav();
-      }
+      toggleMobileNav(true);
     });
   });
 
-  // 2. ScrollSpy: Highlight active navigation link
-  function updateActiveLink() {
-    const scrollPosition = window.scrollY + 120;
+  // Also close if clicking the backdrop area of the mobile nav
+  if (mobileNav) {
+    mobileNav.addEventListener('click', (e) => {
+      if (e.target === mobileNav) {
+        toggleMobileNav(true);
+      }
+    });
+  }
 
-    sections.forEach(section => {
+  // 2. ScrollSpy (Active only on homepage when scrolling through sections)
+  function updateHomepageScrollSpy() {
+    if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+      return;
+    }
+
+    const sections = document.querySelectorAll('section[id]');
+    if (sections.length === 0) return;
+
+    const scrollPosition = window.scrollY + 140;
+
+    sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
       const sectionId = section.getAttribute('id');
 
       if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        desktopLinks.forEach(link => {
-          if (link.getAttribute('href') === `#${sectionId}`) {
+        // If it's a sub-section on home, we can optionally reflect it
+        const desktopLinks = document.querySelectorAll('.desktop-nav .nav-link');
+        desktopLinks.forEach((link) => {
+          const href = link.getAttribute('href');
+          if (href === `/#${sectionId}` || (sectionId === 'hero' && href === '/')) {
             link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-        mobileLinks.forEach(link => {
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          } else {
+          } else if (href && href.startsWith('/#')) {
             link.classList.remove('active');
           }
         });
@@ -74,5 +83,5 @@ export function initNavigation() {
     });
   }
 
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  window.addEventListener('scroll', updateHomepageScrollSpy, { passive: true });
 }

@@ -13,9 +13,9 @@
   padding: 0.625rem 1.25rem;
   font-family: var(--font-technical);
   font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-weight: 600;
   border-radius: var(--radius-sm);
   transition: background-color var(--transition-instant), 
               color var(--transition-instant), 
@@ -133,10 +133,10 @@
   border: 1px solid var(--color-outline-variant-40);
   border-radius: var(--radius-sm);
   font-family: var(--font-technical);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-transform: none;
 }
 
 .brand-monogram {
@@ -172,8 +172,8 @@
   font-family: var(--font-technical);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-transform: none;
   color: var(--color-on-surface-variant);
   border-radius: var(--radius-sm);
   transition: all var(--transition-instant);
@@ -204,9 +204,9 @@
   font-family: var(--font-technical);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.03em;
   color: var(--color-outline);
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .form-input,
@@ -311,3 +311,446 @@
   text-transform: uppercase;
   width: 35%;
 }
+
+/* --------------------------------------------------------------------------
+   Telemetry Strip (Coordinate & System Status Bar)
+   -------------------------------------------------------------------------- */
+.telemetry-strip {
+  width: 100%;
+  background-color: var(--color-surface-lowest);
+  border-bottom: 1px solid var(--color-outline-variant-30);
+  padding: 0.625rem var(--gutter);
+  margin-top: 5rem;
+}
+
+.telemetry-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  font-family: var(--font-technical);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-outline);
+}
+
+.telemetry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.telemetry-status {
+  color: var(--color-forge-orange);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Capability Cards (Who We Are - What We Do)
+   -------------------------------------------------------------------------- */
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .capability-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.capability-card {
+  background-color: var(--color-surface-container);
+  border: 1px solid var(--color-outline-variant-30);
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.capability-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background-color: var(--color-forge-orange);
+  transition: height var(--transition-smooth);
+}
+
+[dir="rtl"] .capability-card::before {
+  left: auto;
+  right: 0;
+}
+
+.capability-card:hover::before {
+  height: 100%;
+}
+
+.capability-icon-wrap {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface-low);
+  border: 1px solid var(--color-outline-variant-40);
+  border-radius: var(--radius-sm);
+  color: var(--color-forge-orange);
+}
+
+/* --------------------------------------------------------------------------
+   Value Tiles (VAL_01 to VAL_04)
+   -------------------------------------------------------------------------- */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.value-tile {
+  background-color: var(--color-surface-low);
+  border: 1px solid var(--color-outline-variant-30);
+  padding: var(--space-lg);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.value-tile:hover {
+  background-color: var(--color-surface-container);
+  border-color: var(--color-forge-orange);
+}
+
+.value-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-outline-variant-30);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.value-code {
+  font-family: var(--font-technical);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-forge-orange);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Why Choose Us / Advantage Pillars
+   -------------------------------------------------------------------------- */
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .advantage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .advantage-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.advantage-card {
+  background-color: var(--color-surface-container);
+  border: 1px solid var(--color-outline-variant-30);
+  padding: var(--space-lg);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.advantage-idx {
+  font-family: var(--font-technical);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-outline-variant);
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Contact Info Cards Grid (4 Cards)
+   -------------------------------------------------------------------------- */
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .contact-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.contact-card {
+  background-color: var(--color-surface-low);
+  border: 1px solid var(--color-outline-variant-30);
+  padding: var(--space-lg);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.contact-card:hover {
+  background-color: var(--color-surface-container);
+  border-color: var(--color-outline-variant);
+}
+
+.contact-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-technical);
+  font-size: 0.75rem;
+  color: var(--color-outline);
+}
+
+/* --------------------------------------------------------------------------
+   FAQ Accordion Component
+   -------------------------------------------------------------------------- */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.faq-item {
+  background-color: var(--color-surface-low);
+  border: 1px solid var(--color-outline-variant-30);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: border-color var(--transition-smooth);
+}
+
+.faq-item:hover {
+  border-color: var(--color-outline-variant);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: var(--space-md);
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  color: var(--color-on-surface);
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .faq-question-btn {
+    padding: var(--space-lg);
+  }
+}
+
+[dir="rtl"] .faq-question-btn {
+  text-align: right;
+}
+
+.faq-question-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-family: var(--font-headline);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.faq-num {
+  font-family: var(--font-technical);
+  font-weight: 700;
+  color: var(--color-forge-orange);
+  font-size: 0.875rem;
+}
+
+.faq-answer-wrap {
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .faq-answer-wrap {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+}
+
+.faq-answer-inner {
+  border-top: 1px solid var(--color-outline-variant-30);
+  padding-top: var(--space-md);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+}
+
+/* --------------------------------------------------------------------------
+   Privacy TOC Sidebar & Articles
+   -------------------------------------------------------------------------- */
+.toc-sidebar {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+@media (min-width: 1024px) {
+  .toc-sidebar {
+    position: sticky;
+    top: 6.5rem;
+  }
+}
+
+.toc-card {
+  background-color: var(--color-surface-low);
+  border: 1px solid var(--color-outline-variant-30);
+  border-left: 2px solid var(--color-forge-orange);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 768px) {
+  .toc-card {
+    padding: var(--space-lg);
+  }
+}
+
+[dir="rtl"] .toc-card {
+  border-left: 1px solid var(--color-outline-variant-30);
+  border-right: 2px solid var(--color-forge-orange);
+}
+
+.toc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: var(--space-sm);
+}
+
+.toc-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-technical);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  text-decoration: none;
+  transition: all var(--transition-instant);
+}
+
+.toc-link:hover,
+.toc-link.active {
+  background-color: var(--color-surface-container);
+  color: var(--color-forge-orange);
+  font-weight: 600;
+}
+
+.policy-article {
+  background-color: var(--color-surface-low);
+  border: 1px solid var(--color-outline-variant-30);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  scroll-margin-top: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .policy-article {
+    padding: var(--space-xl);
+  }
+}
+
+.policy-article-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-technical);
+  font-size: 0.75rem;
+  border-bottom: 1px solid var(--color-outline-variant-30);
+  padding-bottom: var(--space-xs);
+}
+
+/* --------------------------------------------------------------------------
+   CTA Industrial Panel Banner
+   -------------------------------------------------------------------------- */
+.cta-banner-card {
+  background-color: var(--color-surface-low);
+  border: 1px solid var(--color-outline-variant-30);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .cta-banner-card {
+    padding: var(--space-xl);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.cta-banner-card::after {
+  content: '';
+  position: absolute;
+  right: -5rem;
+  bottom: -5rem;
+  width: 20rem;
+  height: 20rem;
+  background: radial-gradient(circle, rgba(232, 117, 36, 0.15) 0%, rgba(232, 117, 36, 0) 70%);
+  pointer-events: none;
+}
+
