@@ -1,0 +1,75 @@
+:root {
+  /* Industrial Precision Color Palette */
+  --color-canvas: #0b0d0e;
+  --color-surface: #0c1518;
+  --color-surface-dim: #0c1518;
+  --color-surface-bright: #323b3e;
+  --color-surface-lowest: #070f12;
+  --color-surface-low: #141d20;
+  --color-surface-container: #182124;
+  --color-surface-high: #232b2f;
+  --color-surface-highest: #2d363a;
+  --color-primary-container: #0b0d0e;
+
+  /* Typography & Neutral Colors */
+  --color-on-surface: #dbe4e8;
+  --color-on-surface-variant: #c4c7c9;
+  --color-outline: #8e9193;
+  --color-outline-variant: #444749;
+  --color-outline-variant-30: rgba(68, 71, 73, 0.3);
+  --color-outline-variant-40: rgba(68, 71, 73, 0.4);
+  --color-outline-variant-60: rgba(68, 71, 73, 0.6);
+
+  /* Tactical Forge Orange Accents */
+  --color-forge-orange: #e87524;
+  --color-forge-orange-hover: #ff8533;
+  --color-tertiary-fixed: #ffdbc9;
+  --color-tertiary-fixed-dim: #ffb68d;
+  --color-on-tertiary: #0b0d0e;
+  --color-tertiary-container: #1b0700;
+
+  /* Light Inverted Dossier Section */
+  --color-light-bg: #f1f2f2;
+  --color-light-card: #e2e4e5;
+  --color-light-text: #0b0d0e;
+  --color-light-subtext: #454748;
+
+  /* System Status / Functional */
+  --color-success: #4edea3;
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+
+  /* Typography Stacks */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-headline: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-technical: 'Space Grotesk', monospace, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Segoe UI', sans-serif;
+
+  /* Spacing System */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+
+  --gutter: 1.5rem;
+  --gutter-desktop: 2.5rem;
+  --max-width: 80rem; /* 1280px */
+
+  /* Structural Geometry & Radii */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-none: 0px;
+
+  /* Seams & Borders */
+  --border-hairline: 1px solid var(--color-outline-variant-30);
+  --border-structural: 1px solid var(--color-outline-variant);
+  --border-accent: 1px solid var(--color-forge-orange);
+
+  /* Transitions */
+  --transition-instant: 120ms cubic-bezier(0, 0, 0.2, 1);
+  --transition-smooth: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-reveal: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}

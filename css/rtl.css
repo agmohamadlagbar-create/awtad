@@ -1,0 +1,92 @@
+/* ==========================================================================
+   RTL Styles: Arabic Language Overrides (dir="rtl")
+   ========================================================================== */
+
+[dir="rtl"] {
+  font-family: var(--font-arabic), var(--font-body);
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: var(--font-arabic), var(--font-headline);
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .font-technical,
+[dir="rtl"] .font-label-caps,
+[dir="rtl"] .font-label-mono {
+  font-family: var(--font-arabic), var(--font-technical);
+  letter-spacing: 0.02em;
+}
+
+/* Numerics keep tabular-nums */
+[dir="rtl"] .tabular-nums,
+[dir="rtl"] .stat-number,
+[dir="rtl"] .pipeline-step-num {
+  font-family: var(--font-display);
+  direction: ltr;
+  display: inline-block;
+}
+
+/* Hero section directional adjustments */
+[dir="rtl"] .hero-gradient-overlay {
+  background: linear-gradient(to left, 
+    var(--color-primary-container) 0%, 
+    rgba(11, 13, 14, 0.85) 50%, 
+    rgba(11, 13, 14, 0.4) 100%);
+}
+
+[dir="rtl"] .hero-coordinates.left {
+  left: auto;
+  right: var(--gutter);
+}
+@media (min-width: 768px) {
+  [dir="rtl"] .hero-coordinates.left {
+    right: var(--gutter-desktop);
+  }
+  [dir="rtl"] .hero-coordinates.right {
+    right: auto;
+    left: var(--gutter-desktop);
+  }
+}
+
+/* Spec Box Border Swap */
+[dir="rtl"] .card-spec-box {
+  border-left: none;
+  border-right: 2px solid var(--color-forge-orange);
+}
+
+/* Form alignments */
+[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+[dir="rtl"] .form-input,
+[dir="rtl"] .form-select,
+[dir="rtl"] .form-textarea {
+  text-align: right;
+}
+
+/* Table alignments */
+[dir="rtl"] .spec-table th,
+[dir="rtl"] .spec-table td {
+  text-align: right;
+}
+
+/* Crosshairs in RTL */
+[dir="rtl"] .crosshair-corner.top-left { left: auto; right: 0.5rem; }
+[dir="rtl"] .crosshair-corner.top-right { right: auto; left: 0.5rem; }
+[dir="rtl"] .crosshair-corner.bottom-left { left: auto; right: 0.5rem; }
+[dir="rtl"] .crosshair-corner.bottom-right { right: auto; left: 0.5rem; }
+
+/* Arrows & Icons Flip */
+[dir="rtl"] .arrow-dir {
+  display: inline-block;
+  transform: scaleX(-1);
+}
