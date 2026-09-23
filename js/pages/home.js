@@ -27,7 +27,7 @@ export const homePage = `
 
           <!-- Dual Call to Actions -->
           <div class="flex flex-wrap gap-md" style="padding-top: var(--space-md);">
-            <a href="#rfq" class="btn btn-primary btn-lg" data-i18n="hero_cta_quote">
+            <a href="/contact" class="btn btn-primary btn-lg" data-i18n="hero_cta_quote">
               Request a Quote →
             </a>
             <a href="#catalog" class="btn btn-surface btn-lg" data-i18n="hero_cta_catalog">
@@ -141,10 +141,13 @@ export const homePage = `
           </button>
         </div>
 
-        <!-- Interactive 3-Card Catalog Grid -->
-        <div class="grid-cols-3">
+        <!-- Interactive 4-Card Catalog Grid -->
+        <div class="catalog-cards-grid" id="catalog-products-grid">
           <!-- Card 1 -->
-          <div class="industrial-card catalog-item-card flex flex-col justify-between reveal-item" data-category="beams">
+          <div class="industrial-card catalog-item-card flex flex-col justify-between product-card-animated" data-category="beams">
+            <div class="product-card-media">
+              <img src="/assets/products/beams.jpg" alt="Heavy Welded I-Beams & Columns" class="product-card-img" loading="lazy">
+            </div>
             <div class="flex flex-col gap-sm">
               <h3 class="text-headline-sm" data-i18n="prod_1_title">
                 Heavy Welded I-Beams & Columns
@@ -162,7 +165,10 @@ export const homePage = `
           </div>
 
           <!-- Card 2 -->
-          <div class="industrial-card catalog-item-card flex flex-col justify-between reveal-item" data-category="plate">
+          <div class="industrial-card catalog-item-card flex flex-col justify-between product-card-animated" data-category="plate">
+            <div class="product-card-media">
+              <img src="/assets/products/box-girders.jpg" alt="Box Girders & Long-Span Bridge Trusses" class="product-card-img" loading="lazy">
+            </div>
             <div class="flex flex-col gap-sm">
               <h3 class="text-headline-sm" data-i18n="prod_2_title">
                 Box Girders & Long-Span Bridge Trusses
@@ -180,7 +186,10 @@ export const homePage = `
           </div>
 
           <!-- Card 3 -->
-          <div class="industrial-card catalog-item-card flex flex-col justify-between reveal-item" data-category="silos">
+          <div class="industrial-card catalog-item-card flex flex-col justify-between product-card-animated" data-category="silos">
+            <div class="product-card-media">
+              <img src="/assets/products/pipe-racks.jpg" alt="Custom Industrial Pipe Racks & Skeletal Frames" class="product-card-img" loading="lazy">
+            </div>
             <div class="flex flex-col gap-sm">
               <h3 class="text-headline-sm" data-i18n="prod_3_title">
                 Custom Industrial Pipe Racks & Skeletal Frames
@@ -193,6 +202,27 @@ export const homePage = `
               <span class="font-label-caps" style="color: var(--color-forge-orange); display: block; margin-bottom: 0.25rem;">Engineering Specifications</span>
               <p class="font-label-mono" data-i18n="prod_3_spec">
                 Petrochemical grade • Hot-dip galvanized • Prefabricated modular transport ready
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="industrial-card catalog-item-card flex flex-col justify-between product-card-animated" data-category="arch">
+            <div class="product-card-media">
+              <img src="/assets/products/arch-steel.jpg" alt="Architectural Space Frames & Canopies" class="product-card-img" loading="lazy">
+            </div>
+            <div class="flex flex-col gap-sm">
+              <h3 class="text-headline-sm" data-i18n="prod_4_title">
+                Architectural Space Frames & Canopies
+              </h3>
+              <p class="text-body-sm" data-i18n="prod_4_desc">
+                High-tolerance geometric steel nodes, custom glazed canopy structures, and monumental architectural frameworks for airports and terminals.
+              </p>
+            </div>
+            <div class="card-spec-box">
+              <span class="font-label-caps" style="color: var(--color-forge-orange); display: block; margin-bottom: 0.25rem;">Engineering Specifications</span>
+              <p class="font-label-mono" data-i18n="prod_4_spec">
+                Custom Geometry • Hot-Dip Galvanized + Polyurethane • EXC3 Standard
               </p>
             </div>
           </div>
@@ -294,7 +324,7 @@ export const homePage = `
             </div>
 
             <div class="flex flex-col sm:flex-row items-center gap-md" style="padding-top: var(--space-lg);">
-              <a href="#rfq" class="btn btn-primary" data-i18n="dossier_btn">
+              <a href="/contact" class="btn btn-primary" data-i18n="dossier_btn">
                 Request Technical Data Sheet & Quote →
               </a>
               <span class="font-label-mono" style="color: var(--color-outline);" data-i18n="dossier_models_note">
@@ -631,77 +661,30 @@ export const homePage = `
     </section>
 
     <!-- =========================================================================
-         SECTION 10: MASSIVE INDUSTRIAL CTA & RFQ INTAKE
+         SECTION 10: COMPACT INDUSTRIAL CTA BANNER
          ========================================================================= -->
-    <section class="section-wrapper section-rfq" id="rfq">
+    <section class="section-wrapper section-cta-banner" id="cta-contact">
       <!-- Radial Dot Mesh Background -->
-      <div class="rfq-dot-mesh"></div>
+      <div class="cta-banner-mesh"></div>
 
-      <div class="container rfq-center-container">
-        <!-- Overline & Title -->
-        <div class="reveal-item">
-          <h2 class="text-display-hero section-title" data-i18n="rfq_title">
+      <div class="container cta-banner-container reveal-item">
+        <div class="cta-banner-content">
+          <span class="font-label-caps cta-banner-badge" data-i18n="cta_banner_overline">ENGINEERING & FABRICATION ENGAGEMENT</span>
+          <h2 class="text-display-hero cta-banner-title" data-i18n="rfq_title">
             LET'S BUILD SOMETHING RESILIENT.
           </h2>
-
-          <p class="text-body-lg" style="margin-top: var(--space-sm);" data-i18n="rfq_desc">
+          <p class="text-body-lg cta-banner-desc" data-i18n="cta_banner_desc">
             Submit your project structural drawings, Tekla models, or engineering Bills of Quantities (BOQ) for immediate technical evaluation and transparent commercial estimate.
           </p>
         </div>
 
-        <!-- Interactive RFQ Form Card -->
-        <div class="rfq-form-card reveal-item">
-          <form id="rfq-intake-form" novalidate>
-            <div class="grid-cols-2">
-              <div class="form-group">
-                <label for="rfq-project-name" class="form-label" data-i18n="rfq_label_project">Project Name / Reference</label>
-                <input type="text" id="rfq-project-name" class="form-input" placeholder="e.g. Red Sea Terminal Pkg 04" data-i18n-ph="rfq_ph_project" required>
-                <span class="form-error-msg">Project reference is required</span>
-              </div>
-
-              <div class="form-group">
-                <label for="rfq-tonnage" class="form-label" data-i18n="rfq_label_tonnage">Estimated Steel Tonnage</label>
-                <input type="text" id="rfq-tonnage" class="form-input" placeholder="e.g. 2,500 MT" data-i18n-ph="rfq_ph_tonnage" required>
-                <span class="form-error-msg">Estimated tonnage is required</span>
-              </div>
-
-              <div class="form-group">
-                <label for="rfq-email" class="form-label" data-i18n="rfq_label_email">Engineering Contact Email</label>
-                <input type="email" id="rfq-email" class="form-input" placeholder="eng@contractor.com" data-i18n-ph="rfq_ph_email" required>
-                <span class="form-error-msg">Valid engineering email is required</span>
-              </div>
-
-              <div class="form-group">
-                <label for="rfq-spec-code" class="form-label" data-i18n="rfq_label_spec">Specification Code</label>
-                <select id="rfq-spec-code" class="form-select">
-                  <option value="EN1090">EN 1090-2 Execution Class 4</option>
-                  <option value="AWS">AWS D1.1 Structural Welding</option>
-                  <option value="AISC">AISC 360 Heavy Commercial</option>
-                  <option value="ARAMCO">Aramco Standard 12-SAMSS</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Form Action Footer -->
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-md" style="margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-outline-variant-30);">
-              <button type="submit" class="btn btn-primary btn-lg" id="rfq-submit-btn" data-i18n="rfq_btn_submit">
-                Request a Quote →
-              </button>
-              <a href="#" class="btn-ghost font-technical" data-i18n="rfq_btn_pdf">
-                Download Spec Sheet (PDF) →
-              </a>
-            </div>
-
-            <!-- Dynamic Success State Alert -->
-            <div class="form-alert-success" id="rfq-success-message" role="alert">
-              <span class="indicator-dot live-pulse" style="margin-right: 0.5rem;"></span>
-              <span data-i18n="rfq_success_msg">Specification transmitted. Our chief estimating engineer will review your project within 24 hours.</span>
-            </div>
-          </form>
-        </div>
-
-        <div class="font-label-mono" style="color: var(--color-outline);" data-i18n="rfq_desk_info">
-          Direct Desk: rfq@awtadalkhaleej.com • Response SLA: 24 Hours
+        <div class="cta-banner-actions">
+          <a href="/contact" class="btn btn-primary btn-lg" data-i18n="cta_banner_btn">
+            Contact Engineering Desk →
+          </a>
+          <div class="font-label-mono cta-banner-meta" data-i18n="rfq_desk_info">
+            Direct Desk: rfq@awtadalkhaleej.com • Response SLA: 24 Hours
+          </div>
         </div>
       </div>
     </section>

@@ -65,6 +65,10 @@ export const translations = {
     prod_3_desc: "Modularized multi-tier process piping racks, catalyst support towers, and petrochemical refinery substructures engineered for severe wind and seismic loads.",
     prod_3_spec: "Petrochemical grade • Hot-dip galvanized • Prefabricated modular transport ready",
 
+    prod_4_title: "Architectural Space Frames & Canopies",
+    prod_4_desc: "High-tolerance geometric steel nodes, custom glazed canopy structures, and monumental architectural frameworks for airports and terminals.",
+    prod_4_spec: "Custom Geometry • Hot-Dip Galvanized + Polyurethane • EXC3 Standard",
+
     // Home Dossier
     dossier_overline: "",
     dossier_title: "HEAVY FABRICATED PLATE GIRDERS",
@@ -142,21 +146,12 @@ export const translations = {
     pillar_4_title: "GCC Logistics Corridor",
     pillar_4_desc: "Dedicated logistics fleet and direct highway/port corridor links ensure synchronized just-in-time delivery to remote desert and coastal sites.",
 
-    // Home RFQ
-    rfq_overline: "",
+    // Home CTA Banner
+    cta_banner_overline: "ENGINEERING & FABRICATION ENGAGEMENT",
     rfq_title: "LET'S BUILD SOMETHING RESILIENT.",
-    rfq_desc: "Submit your project structural drawings, Tekla models, or engineering Bills of Quantities (BOQ) for immediate technical evaluation and transparent commercial estimate.",
-    rfq_label_project: "Project Name / Reference",
-    rfq_ph_project: "e.g. Red Sea Terminal Pkg 04",
-    rfq_label_tonnage: "Estimated Steel Tonnage",
-    rfq_ph_tonnage: "e.g. 2,500 MT",
-    rfq_label_email: "Engineering Contact Email",
-    rfq_ph_email: "eng@contractor.com",
-    rfq_label_spec: "Specification Code",
-    rfq_btn_submit: "Request a Quote →",
-    rfq_btn_pdf: "Download Spec Sheet (PDF) →",
+    cta_banner_desc: "Submit your project structural drawings, Tekla models, or engineering Bills of Quantities (BOQ) for immediate technical evaluation and transparent commercial estimate.",
+    cta_banner_btn: "Contact Engineering Desk →",
     rfq_desk_info: "Direct Desk: rfq@awtadalkhaleej.com • Response SLA: 24 Hours",
-    rfq_success_msg: "Specification transmitted. Our chief estimating engineer will review your project within 24 hours.",
 
     // =========================================================================
     // ABOUT PAGE ("Who We Are")
@@ -427,6 +422,10 @@ export const translations = {
     prod_3_desc: "حوامل أنابيب معيارية متعددة المستويات، وأبراج دعم المحفزات، وهياكل مصافي البتروكيماويات المقاومة للرياح العاتية والأحمال الزلزالية.",
     prod_3_spec: "مطابقة لمواصفات البتروكيماويات • جلفنة بالغمس الساخن • جاهزة للنقل المعياري المسبق",
 
+    prod_4_title: "الهياكل الإنشائية المعمارية والمظلات الفضائية",
+    prod_4_desc: "وصلات فولاذية هندسية دقيقة، ومظلات زجاجية مخصصة، وهياكل معمارية متقدمة للمطارات ومحطات النقل الكبرى.",
+    prod_4_spec: "أبعاد هندسية مخصصة • جلفنة بالغمس الساخن + بولي يوريثان • معيار EXC3",
+
     // Home Dossier
     dossier_overline: "",
     dossier_title: "جسور الألواح الفولاذية الثقيلة المُصنّعة",
@@ -504,21 +503,12 @@ export const translations = {
     pillar_4_title: "شبكة نقل ولوجستيات خليجية",
     pillar_4_desc: "أسطول نقل متخصص وشبكة طرق وموانئ مباشرة لضمان التوريد المتزامن والمبرمج للمواقع الصحراوية والساحلية.",
 
-    // Home RFQ
-    rfq_overline: "",
+    // Home CTA Banner
+    cta_banner_overline: "التواصل الهندسي والتصنيع المعتمد",
     rfq_title: "لنصنع معاً صروحاً هندسية مستدامة.",
-    rfq_desc: "أرسل المخططات الإنشائية لمشروعك، أو نماذج Tekla، أو جداول الكميات الهندسية (BOQ) للحصول على تقييم فني فوري وتسعير تجاري شفاف.",
-    rfq_label_project: "اسم المشروع / الرقم المرجعي",
-    rfq_ph_project: "مثال: محطة البحر الأحمر - حزمة 04",
-    rfq_label_tonnage: "الوزن التقديري للصلب (بالطن)",
-    rfq_ph_tonnage: "مثال: 2,500 طن",
-    rfq_label_email: "البريد الإلكتروني للجهة الهندسية",
-    rfq_ph_email: "eng@contractor.com",
-    rfq_label_spec: "كود المواصفات الإنشائية",
-    rfq_btn_submit: "طلب عرض أسعار ←",
-    rfq_btn_pdf: "تحميل وثيقة المواصفات (PDF) ←",
+    cta_banner_desc: "أرسل المخططات الإنشائية لمشروعك، أو نماذج Tekla، أو جداول الكميات الهندسية (BOQ) للحصول على تقييم فني فوري وتسعير تجاري شفاف وموثوق.",
+    cta_banner_btn: "تواصل مع المكتب الهندسي ←",
     rfq_desk_info: "المكتب المباشر: rfq@awtadalkhaleej.com • زمن الاستجابة: 24 ساعة",
-    rfq_success_msg: "تم إرسال المواصفات بنجاح. سيقوم كبير مهندسي التسعير بمراجعة مشروعك خلال 24 ساعة عمل.",
 
     // =========================================================================
     // ABOUT PAGE ("Who We Are")

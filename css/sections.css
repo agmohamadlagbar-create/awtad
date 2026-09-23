@@ -410,6 +410,24 @@
   transform: translate(2px, -2px);
 }
 
+.catalog-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .catalog-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalog-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* --------------------------------------------------------------------------
    04. Specification Dossier (Flagship Component)
    -------------------------------------------------------------------------- */
@@ -571,44 +589,69 @@
 }
 
 /* --------------------------------------------------------------------------
-   10. Procurement Intake (RFQ Form)
+   10. Compact Industrial CTA Banner
    -------------------------------------------------------------------------- */
-.section-rfq {
+.section-cta-banner {
   background-color: var(--color-primary-container);
+  border-top: 1px solid var(--color-outline-variant-30);
   border-bottom: 1px solid var(--color-outline-variant-30);
   position: relative;
   overflow: hidden;
+  padding: var(--space-2xl) 0;
 }
 
-.rfq-dot-mesh {
+.cta-banner-mesh {
   position: absolute;
   inset: 0;
-  opacity: 0.05;
+  opacity: 0.07;
   pointer-events: none;
   background-image: radial-gradient(var(--color-forge-orange) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-.rfq-center-container {
+.cta-banner-container {
   position: relative;
   z-index: 2;
-  max-width: 48rem;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
+  max-width: 52rem;
+  margin: 0 auto;
 }
 
-.rfq-form-card {
+.cta-banner-badge {
+  color: var(--color-forge-orange);
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+}
+
+.cta-banner-title {
+  color: var(--color-on-surface);
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+}
+
+.cta-banner-desc {
+  color: var(--color-on-surface-variant);
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.cta-banner-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
   width: 100%;
-  background-color: var(--color-surface-low);
-  border: 1px solid var(--color-outline-variant);
-  padding: var(--space-lg);
-  border-radius: var(--radius-sm);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cta-banner-meta {
+  color: var(--color-outline);
+  font-size: 0.8125rem;
 }
 
 /* --------------------------------------------------------------------------

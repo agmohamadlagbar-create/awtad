@@ -20,6 +20,11 @@
   --duration-page-transition: 350ms;
   --duration-form-field: 450ms;
   --stagger-delay: 100ms;
+
+  --ease-product-entrance: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-product-entrance: 600ms;
+  --stagger-product-delay: 80ms;
+  --duration-product-hover: 300ms;
 }
 
 /* --------------------------------------------------------------------------
@@ -279,6 +284,63 @@ button[type="submit"]:active,
 }
 
 /* --------------------------------------------------------------------------
+   Product Card Entrance & Hover Animation (Smooth & Modern)
+   -------------------------------------------------------------------------- */
+.product-card-animated {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-product-entrance) var(--ease-product-entrance),
+              transform var(--duration-product-entrance) var(--ease-product-entrance);
+  transition-delay: var(--product-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+.product-card-animated.product-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Product Card Hover Interaction */
+.catalog-item-card {
+  transition: transform var(--duration-product-hover) var(--ease-product-entrance),
+              border-color var(--duration-product-hover) var(--ease-product-entrance),
+              box-shadow var(--duration-product-hover) var(--ease-product-entrance),
+              background-color var(--duration-product-hover) var(--ease-product-entrance);
+  will-change: transform, box-shadow;
+  overflow: hidden;
+}
+
+.catalog-item-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 94, 30, 0.5);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), 0 0 16px rgba(255, 94, 30, 0.08);
+}
+
+.product-card-media {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: var(--radius-xs);
+  margin-bottom: var(--space-md);
+  background-color: var(--color-surface-lowest);
+}
+
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 350ms var(--ease-product-entrance), filter 350ms var(--ease-product-entrance);
+  filter: brightness(0.92) contrast(1.04);
+  will-change: transform;
+}
+
+.catalog-item-card:hover .product-card-img {
+  transform: scale(1.03);
+  filter: brightness(1) contrast(1.08);
+}
+
+/* --------------------------------------------------------------------------
    9. Section Heading Animation & 16. Steel-Line Sweep
    -------------------------------------------------------------------------- */
 .steel-line-sweep {
@@ -448,7 +510,16 @@ button[type="submit"]:active,
 
   .card-interactive:hover,
   .card-interactive:hover .card-image-zoom,
-  .industrial-img-zoom:hover img {
+  .industrial-img-zoom:hover img,
+  .catalog-item-card:hover,
+  .catalog-item-card:hover .product-card-img {
     transform: none !important;
+  }
+
+  .product-card-animated,
+  .product-card-animated.product-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
