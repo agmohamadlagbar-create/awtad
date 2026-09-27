@@ -330,14 +330,15 @@ button[type="submit"]:active,
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 350ms var(--ease-product-entrance), filter 350ms var(--ease-product-entrance);
-  filter: brightness(0.92) contrast(1.04);
+  filter: brightness(1) contrast(1.05);
   will-change: transform;
 }
 
 .catalog-item-card:hover .product-card-img {
-  transform: scale(1.03);
-  filter: brightness(1) contrast(1.08);
+  transform: scale(1.04);
+  filter: brightness(1.06) contrast(1.08);
 }
 
 /* --------------------------------------------------------------------------
@@ -409,8 +410,8 @@ button[type="submit"]:active,
    14. Contact Form Field Reveal & 15. Form Focus
    -------------------------------------------------------------------------- */
 .form-field-reveal {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity var(--duration-form-field) var(--ease-premium),
               transform var(--duration-form-field) var(--ease-premium);
 }

@@ -25,21 +25,24 @@ export function initForm() {
  * 2. Contact Page Engagement Form
  */
 function initContactForm() {
-  const form = document.getElementById('contact-page-form');
+  const form = document.getElementById('contact-form') || document.getElementById('contact-page-form');
   if (!form) return;
 
   const nameInput = document.getElementById('contact-name');
   const emailInput = document.getElementById('contact-email');
   const subjectSelect = document.getElementById('contact-subject');
   const messageInput = document.getElementById('contact-message');
-  const feedback = document.getElementById('contact-form-feedback');
+  const feedback = document.getElementById('form-status-msg') || document.getElementById('contact-form-feedback');
   const submitBtn = form.querySelector('button[type="submit"]');
 
   [nameInput, emailInput, subjectSelect, messageInput].forEach((field) => {
     if (!field) return;
     field.addEventListener('input', () => {
       setFieldError(field, false);
-      if (feedback) feedback.classList.remove('visible');
+      if (feedback) {
+        feedback.classList.add('hidden');
+        feedback.classList.remove('visible');
+      }
     });
     field.addEventListener('change', () => {
       setFieldError(field, false);
@@ -89,7 +92,12 @@ function initContactForm() {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalHtml;
         if (feedback) {
+          feedback.classList.remove('hidden');
           feedback.classList.add('visible');
+          const isAr = document.documentElement.getAttribute('dir') === 'rtl';
+          feedback.textContent = isAr 
+            ? '✓ تم استلام طلبك بنجاح! سيتواصل معك فريق مبيعات أوتاد الخليج في أقرب وقت.'
+            : '✓ Your RFQ has been transmitted successfully! Our sales team will reach out shortly.';
         }
         form.reset();
       }, 800);

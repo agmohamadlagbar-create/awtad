@@ -15,7 +15,7 @@ export const privacyPage = `
 
   <!-- Hero Section -->
   <section class="page-hero" style="text-align: center;">
-    <div class="page-hero-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7xteU-LlMgU0xWFZWJi7TNunHO9a-chjDSeIbdqEnSdpCNaXIeCzrPd_K89TSLvbhnsU7rK1wJOKvbeZda_hn8H8eHtl5CFvQjgo8I2fT8Ivk93u7m9o9BY7DgFKAOzRm30DbvKxZmg_U_cIlG5clXoFkptYKeMZ8i_mxdmHrTuZj3qvCrj_4gxIsd9EADXn3U9RoHUJytRmNjgzj280P9RC2cWF5MOMyDdXchGpW15Zvf7B5DjvE');"></div>
+    <div class="page-hero-bg" style="background-image: url('/assets/hero/rebar-hero.jpg'); opacity: 0.45;"></div>
     <div class="page-hero-overlay"></div>
     <div class="container">
       <div class="page-hero-content" style="align-items: center;">
@@ -177,20 +177,20 @@ export const privacyPage = `
               <div class="grid grid-cols-1 md:grid-cols-3 gap-sm font-technical text-body-sm" style="margin-top: var(--space-xs);">
                 <div class="industrial-card" style="background: var(--color-surface-container);">
                   <span class="font-label-mono text-body-sm" style="color: var(--color-outline); display: block;" data-i18n="p_sec5_c1_t">EMAIL</span>
-                  <a href="mailto:rfq@awtadalkhaleej.com" style="color: var(--color-forge-orange); word-break: break-all;" class="hover:underline">
-                    rfq@awtadalkhaleej.com
+                  <a href="mailto:awtadalkalej@gmail.com" style="color: var(--color-forge-orange); word-break: break-all;" class="hover:underline">
+                    awtadalkalej@gmail.com
                   </a>
                 </div>
                 <div class="industrial-card" style="background: var(--color-surface-container);">
                   <span class="font-label-mono text-body-sm" style="color: var(--color-outline); display: block;" data-i18n="p_sec5_c2_t">PHONE</span>
-                  <a href="tel:+966138004920" style="color: var(--color-on-surface);" class="hover:underline">
-                    +966 13 800 4920
+                  <a href="tel:+966583300400" style="color: var(--color-on-surface);" class="hover:underline">
+                    +966 58 330 0400
                   </a>
                 </div>
                 <div class="industrial-card" style="background: var(--color-surface-container);">
                   <span class="font-label-mono text-body-sm" style="color: var(--color-outline); display: block;" data-i18n="p_sec5_c3_t">LOCATION</span>
                   <span style="color: var(--color-on-surface);" data-i18n="p_sec5_c3_v">
-                    Kingdom of Saudi Arabia
+                    Al-Noor District, Khadrah Street, Riyadh, Saudi Arabia
                   </span>
                 </div>
               </div>
